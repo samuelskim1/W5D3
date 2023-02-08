@@ -83,14 +83,18 @@ VALUES
 INSERT INTO
     question_follows(users_id, question_id)
 VALUES
-    (SELECT author_id FROM questions WHERE questions.id = question_follows.question_id, 1),
-    (SELECT author_id FROM questions WHERE questions.id = question_follows.question_id, 2),
-    (SELECT author_id FROM questions WHERE questions.id = 3, 3);
+    (SELECT users.id FROM users WHERE users.fname = 'James' AND users.lname = 'Bond', 
+        SELECT questions.id FROM questions WHERE questions.title = "Snacks?"),
+    (SELECT users.id FROM users WHERE users.fname = 'Anya' AND users.lname = 'Taylor-Joy', 
+        SELECT questions.id FROM questions WHERE questions.title = "Snacks?"),
+    (SELECT users.id FROM users WHERE users.fname = 'Brad' AND users.lname = 'Pitt', 
+        SELECT questions.id FROM questions WHERE questions.title = "Ballet?");
+    
 
 
-INSERT INTO
-    replies(question_id, parent_reply_id, body)
-VALUES
-    ()
+-- INSERT INTO
+--     replies(question_id, parent_reply_id, body)
+-- VALUES
+--     ()
 
 
