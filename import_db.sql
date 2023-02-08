@@ -1,6 +1,13 @@
 PRAGMA foreign_keys = ON
 
+DROP TABLE IF EXISTS question_likes;
+DROP TABLE IF EXISTS replies;
+DROP TABLE IF EXISTS question_follows;
+DROP TABLE IF EXISTS questions;
 DROP TABLE IF EXISTS users;
+
+
+
 
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
@@ -9,7 +16,6 @@ CREATE TABLE users (
 );
 
 
-DROP TABLE IF EXISTS questions;
 
 CREATE TABLE questions (
     id INTEGER PRIMARY KEY,
@@ -21,7 +27,6 @@ CREATE TABLE questions (
 );
 
 
-DROP TABLE IF EXISTS question_follows
 
 CREATE TABLE question_follows (
     id INTEGER PRIMARY KEY,
@@ -34,15 +39,15 @@ CREATE TABLE question_follows (
 );
 
 
-DROP TABLE IF EXISTS 
 
-CREATE TABLE (
+CREATE TABLE replies (
+    id INTEGER PRIMARY KEY,
+    
 
 
 );
 
 
-DROP TABLE IF EXISTS 
 
 CREATE TABLE (
 
