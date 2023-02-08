@@ -57,7 +57,7 @@ CREATE TABLE question_likes (
     id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
     question_id INTEGER NOT NULL,
-    number_of_likes INTEGER NOT NULL,
+    --number_of_likes INTEGER NOT NULL,
 
     FOREIGN KEY (user_id) REFERENCES users(id)
     FOREIGN KEY (question_id) REFERENCES questions(id)
@@ -98,6 +98,17 @@ VALUES
     ((SELECT questions.id FROM questions WHERE questions.title = "Snacks?"),
         'snickers and twix!'),
     ((SELECT questions.id FROM questions WHERE questions.title = "Ballet?"),
-    'Tonight!')
+    'Tonight!');
+
+INSERT INTO
+    question_likes (user_id,question_id)
+VALUES
+   ((SELECT users.id FROM users WHERE users.fname = 'James' AND users.lname = 'Bond'), 
+        (SELECT questions.id FROM questions WHERE questions.title = "Snacks?")),
+    ((SELECT users.id FROM users WHERE users.fname = 'Anya' AND users.lname = 'Taylor-Joy'), 
+        (SELECT questions.id FROM questions WHERE questions.title = "Ballet?"));
+   
+
+
 
 
