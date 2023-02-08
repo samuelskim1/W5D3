@@ -76,7 +76,21 @@ VALUES
 INSERT INTO
     questions(author_id, title, body)
 VALUES
-    ((SELECT id FROM users WHERE users.fname = 'James' AND users.lname = 'Bond'), 'Oscars?', 'Who won the Best Movie last year?')
-    ((SELECT id FROM users WHERE users.fname = 'Brad' AND users.lname = 'Pitt'), 'Snacks?', 'Anyone have a snack for me?')
-    ((SELECT id FROM users WHERE users.fname = 'Anya' AND users.lname = 'Taylor-Joy'), 'Ballet?', 'Who can teach me ballet?')
+    ((SELECT id FROM users WHERE users.fname = 'James' AND users.lname = 'Bond'), 'Oscars?', 'Who won the Best Movie last year?'),
+    ((SELECT id FROM users WHERE users.fname = 'Brad' AND users.lname = 'Pitt'), 'Snacks?', 'Anyone have a snack for me?'),
+    ((SELECT id FROM users WHERE users.fname = 'Anya' AND users.lname = 'Taylor-Joy'), 'Ballet?', 'Who can teach me ballet?');
+
+INSERT INTO
+    question_follows(users_id, question_id)
+VALUES
+    (SELECT author_id FROM questions WHERE questions.id = question_follows.question_id, 1),
+    (SELECT author_id FROM questions WHERE questions.id = question_follows.question_id, 2),
+    (SELECT author_id FROM questions WHERE questions.id = 3, 3);
+
+
+INSERT INTO
+    replies(question_id, parent_reply_id, body)
+VALUES
+    ()
+
 
