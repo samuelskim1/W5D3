@@ -53,7 +53,30 @@ CREATE TABLE replies (
 
 
 
-CREATE TABLE (
+CREATE TABLE question_likes (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    question_id INTEGER NOT NULL,
+    number_of_likes INTEGER NOT NULL,
 
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (question_id) REFERENCES questions(id)
 
 );
+
+INSERT INTO
+    users(fname, lname)
+VALUES
+    ('Bruce', 'Willis'),
+    ('Anya', 'Taylor-Joy'),
+    ('James', 'Bond')
+    ('Elizabeth', 'Taylor')
+    ('Brad', 'Pitt');
+
+INSERT INTO
+    questions(author_id, title, body)
+VALUES
+    ((SELECT id FROM users WHERE users.fname = 'James' AND users.lname = 'Bond'), 'Oscars?', 'Who won the Best Movie last year?')
+    ((SELECT id FROM users WHERE users.fname = 'Brad' AND users.lname = 'Pitt'), 'Snacks?', 'Anyone have a snack for me?')
+    ((SELECT id FROM users WHERE users.fname = 'Anya' AND users.lname = 'Taylor-Joy'), 'Ballet?', 'Who can teach me ballet?')
+
